@@ -21,7 +21,7 @@ class Cache
      */
     public function has($key)
     {
-        return $this->client->exists($key);
+        return $this->client->exists($key) == 1;
     }
 
     /**
@@ -42,10 +42,10 @@ class Cache
      */
     public function put($key, $value, $time = null)
     {
-        if ($this === null) {
+        if ($time === null) {
             return $this->forever($key, $value);
         }
-        $this->client->setex($key, $value, $time);
+        $this->client->setex($key, $time, $value);
         return $this;
     }
 
@@ -82,7 +82,7 @@ class Cache
             return $this->get($key);
         }
         $value = $callback();
-        $this->put($key, $value);
+        $this->put($key, $value, $time);
         return $value;
     }
 
