@@ -42,4 +42,55 @@ $cache = new Cache([
 
 ### Methods
 
-*TBA*
+#### `put($key, $value, $time = null)`
+
+Put item to cache. (time in seconds)
+
+```php
+$cache->put('foo', 'bar', 60)
+```
+
+
+#### `has($key)`
+
+Determinate if key exists in cache.
+
+```php
+$cache->put('foo')
+```
+
+
+#### `get($key, $default = null)`
+
+Return Item from cache or `$default`.
+
+```php
+$cache->get('foo', 'default')
+```
+
+
+#### `forget($key)`
+
+Remove item from cache.
+
+```php
+$cache->forget('foo')
+```
+
+
+#### `forever($key, $value)`
+
+Store item in cache forever.
+
+```php
+$cache->forever('foo', 'bar')
+```
+
+
+#### `remember($key, $calback, $time = null)`
+
+Return cache item if exists otherwise call, cache and return `$callback`.
+
+```php
+$cache->put('foo')
+```
