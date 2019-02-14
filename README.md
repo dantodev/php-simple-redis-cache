@@ -87,9 +87,9 @@ $cache->forever('foo', 'bar')
 ```
 
 
-#### `remember($key, $calback, $time = null)`
+#### `remember($key, $callback, $time = null)`
 
-Return cache item if exists otherwise call, cache and return `$callback`.
+Return cache item if exists otherwise call `$callback`, cache the returned value and return it.
 
 ```php
 $cache->put('foo')
