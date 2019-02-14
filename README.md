@@ -56,7 +56,7 @@ $cache->put('foo', 'bar', 60)
 Determinate if key exists in cache.
 
 ```php
-$cache->put('foo')
+$cache->has('foo')
 ```
 
 
